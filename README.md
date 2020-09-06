@@ -4,7 +4,7 @@ These are my personal notes for book for Hands-on Machine Learning with Scikit-L
 #### Chapter10: Introduction to Artificial Neural Networks with Keras <font color='green'>[Done]</font>
 
 
-#### Chater11: Training Deep Neural Networks <font color='green'>[Done]</font>
+#### Chapter11: Training Deep Neural Networks <font color='green'>[Done]</font>
 
 #### Chapter12: Custom Models and Training with TensorFlow <font color='orange'>[In Progress]</font>
 
