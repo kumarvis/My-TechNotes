@@ -1,4 +1,4 @@
-# My Notes Book Hands-On-ML-Scikit-Learn-Keras-TF2
+# My Notes for Hands-On-ML-Scikit-Learn-Keras-TF2
 These are my personal notes for book for Hands-on Machine Learning with Scikit-Learn, Keras and TensorFlow by Aurélien Géron
 
 #### Chapter10: Introduction to Artificial Neural Networks with Keras <font color='green'>[Done]</font>
