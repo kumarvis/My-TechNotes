@@ -25,7 +25,7 @@ Figure below is an example of **GlobalAvgPool2D** pooling layer output is the av
 
 **CNN Architectures**
 -----------------
-### GoogLeNet
+#### <ins> GoogLeNet </ins>
 ![img_cnn_googlenet](../images/ch14_inception01.jpeg)
 
 ![img_cnn_googlenet](../images/ch14_inception01-1.jpeg)
@@ -36,12 +36,12 @@ Figure below is an example of **GlobalAvgPool2D** pooling layer output is the av
 
 ![img_cnn_googlenet](../images/ch14_inception04.jpeg)
 
-#### ResNet
+### <ins> ResNet: </ins>
 ![img_cnn_resnet](../images/ch14_resnet01.jpeg)
 
 ![img_cnn_resnet](../images/ch14_resnet02.jpeg)
 
-### Xception
+### <ins> Xception: </ins>
 
 Another variant of the GoogLeNet architecture is worth noting: Xception 19 (which stands for Extreme Inception) was
 proposed in 2016 by François Chollet (the author of Keras), and it significantly outperformed Inception-v3 on a huge
@@ -63,7 +63,7 @@ all), plus a few max pooling layers and the usual final layers (a global average
 layer and a dense output layer).
 
 
-### SENet
+### <ins> SENet: </ins>
 
 The winning architecture in the ILSVRC 2017 challenge was the Squeeze-and-
 Excitation Network (SENet). 22 This architecture extends existing architectures such as inception networks and ResNets, and boosts their performance. This allowed SENet
@@ -108,6 +108,64 @@ For example, an SE block may learn that
 mouths, noses, and eyes usually appear together in pictures: if you see a mouth and a
 nose, you should expect to see eyes as well. So if the block sees a strong activation in the mouth and nose feature maps, but only mild activation in the eye feature map, it will boost the eye feature map **(more accurately, it will reduce irrelevant feature maps because no multiply scale factor can be more than 1.0 hence reduce the irrelevant fatures by multiplying a small scale factor)**. If the eyes were somewhat confused with something else, this feature map recalibration will help resolve the ambiguity.
 
+### <ins> MobileNet V1: </ins>
+
+MobileNetV1 from Google is reviewed. Depthwise Separable Convolution is used to reduce the model size and complexity. It is particularly useful for mobile and embedded vision applications. Image below illustrate concept of MobileNet architecture. 
+
+![img_cnn_mobilenet](../images/ch14_mbilenetv101.png)
+
+8 to 9 times less computation can be achieved, but with only small reduction in accuracy. **Below is the MobileNet Complete Architecture** Batch Normalization (BN) and ReLU are applied after each convolution.
+
+![img_cnn_mobilenet](../images/ch14_mbilenetv102.png)
+
+| ![img_cnn_mobilenet](../images/ch14_mbilenetv103.png) | 
+|:--:| 
+| **Standard Convolution (Left), Depthwise separable convolution (Right) With BN and ReLU** |
+
+As is common in modern architectures, the convolution layers are followed by batch normalization. **The activation function used by MobileNet is ReLU6**. This is like the well-known ReLU but it prevents activations from becoming too big refer the equation below:
+
+```python
+y = min(max(0, x), 6)
+```
+
+| ![img_cnn_mobilenet](../images/ch14_mbilenetv104.png) | 
+|:--:| 
+| **Relu6: Max activation value than can be achieve is 6** |
+
+### <ins> MobileNet V2: </ins>
+
+MobileNetV2 builds upon the ideas from MobileNetV1, using depthwise separable convolution as efficient building blocks. However, V2 introduces two new features to the architecture: 1) Linear bottlenecks between the layers, and 2) Shortcut connections between the bottlenecks1. The basic structure is shown below.
+
+![img_cnn_mobilenet](../images/ch14_mbilenetv105.png)
+
+This time there are three convolutional layers in the block. The last two are the ones we already know: a depthwise convolution that filters the inputs, followed by a 1×1 pointwise convolution layer. However, this 1×1 layer now has a different job.
+The projection layer — it projects data with a high number of dimensions (channels) into a tensor with a much lower number of dimensions. 
+
+For example, if there is a tensor with 24 channels going into a block, the expansion layer first converts this into a new tensor with 24 * 6 = 144 channels. Next, the depthwise convolution applies its filters to that 144-channel tensor. And finally, the projection layer projects the 144 filtered channels back to a smaller number, say 24 again. Refer figure below.
+
+![img_cnn_mobilenet](../images/ch14_mbilenetv106.png)
+
+<ins>Motivation for these changes:</ins> Think of the low-dimensional data that flows between the blocks as being a compressed version of the real data. In order to run filters over this data, we need to uncompress it first. That’s what happens inside each block:
+
+![img_cnn_mobilenet](../images/ch14_mbilenetv107.png)
+
+The expansion layer acts as an decompressor (like unzip) that first restores the data to its full form, then the depthwise layer performs whatever filtering is important at this stage of the network, and finally the projection layer compresses the data to make it small again.
+
+The trick that makes this all work, of course, is that the expansions and projections are done using convolutional layers with learnable parameters, and so the model is able to learn how to best (de)compress the data at each stage in the network.
+
+<ins>Comparison of the Versions:</ins> Let’s compare MobileNet V1 to V2, starting with the sizes of the models in terms of learned parameters and required amount of computation:
+
+Version | MAC(millions) | Parameters(millions)
+------------ | ------------- | ---------------
+MobileNet V1 | 569 | 4.24  
+MobileNet V2 | 300 | 3.47  
+
+“MACs” are multiply-accumulate operations. This measures how many calculations are needed to perform inference on a single 224×224 RGB image. (The larger the image, the more MACs are needed.)
+
+#### <ins>References:</ins>
+
+1. [MobileNet version 2](https://machinethink.net/blog/mobilenet-v2/)
+2. [MobileNet: Paper Review and Model Architecture](https://medium.com/@rockyxu399/mobilenet-paper-review-and-model-architecture-7963c22ea528)
 
 **Object Detection and Segmentation**
 ---------------------------------
@@ -156,4 +214,53 @@ Mask R-CNN is a state-of-the-art model for instance segmentation. It extends Fas
 
 2. [Quick intro to Instance segmentation: Mask R-CNN](https://kharshit.github.io/blog/2019/08/23/quick-intro-to-instance-segmentation)
 
-### 3. Feature Pyramid Networks for Object Detection
+### 3. YOLO V1, V2 and V3
+
+![img_yolo](../images/ch14_yolo01.jpeg)
+
+![img_yolo](../images/ch14_yolo02.jpeg)
+
+![img_yolo](../images/ch14_yolo03.jpeg)
+
+![img_yolo](../images/ch14_yolo04.jpeg)
+
+![img_yolo](../images/ch14_yolo05.jpeg)
+
+![img_yolo](../images/ch14_yolo06.jpeg)
+
+![img_yolo](../images/ch14_yolo07.jpeg)
+
+![img_yolo](../images/ch14_yolo08.jpeg)
+
+![img_yolo](../images/ch14_yolo09.jpeg)
+
+![img_yolo](../images/ch14_yolo10.jpeg)
+
+![img_yolo](../images/ch14_yolo11.jpeg)
+
+![img_yolo](../images/ch14_yolo12.jpeg)
+
+#### <ins> Benchmarking </ins>
+
+Netwrok architecture of Darknet-53 is better than ResNet-101 but 1.5 times faster and is as accurate as ResNet-152 but 2x times faster refer figure below.
+
+![img_yolo](../images/ch14_yolov3_benchmark.jpeg)
+
+<ins>Detector</ins> comparison: YOLO v3 performs at par with other state of art detectors like RetinaNet, while being considerably faster, at COCO mAP 50 benchmark. It is also better than SSD and it’s variants. Here’s a comparison of performances right from the paper.
+
+![img_yolo](../images/ch14_yolov3_benchmark01.jpeg)
+
+In benchmarks, where this number is higher (say, COCO 75), the boxes need to be aligned more perfectly to be not rejected by the evaluation metric. Here is where YOLO is outdone by RetinaNet.
+
+![img_yolo](../images/ch14_yolov3_benchmark02.jpeg)
+
+Coco 50 and Coco 75 implies Coco dataset with IoU = 0.5 and 0.75.
+
+#### <ins>References:</ins>
+
+1. [YOLO, YOLOv2 and YOLOv3: All You want to know](https://medium.com/@amrokamal_47691/yolo-yolov2-and-yolov3-all-you-want-to-know-7e3e92dc4899)
+
+2. [Real-time Object Detection with YOLO, YOLOv2 and now YOLOv3](https://medium.com/@jonathan_hui/real-time-object-detection-with-yolo-yolov2-28b1b93e2088)
+
+3. [What’s new in YOLO v3?](https://towardsdatascience.com/yolo-v3-object-detection-53fb7d3bfe6b)
+
