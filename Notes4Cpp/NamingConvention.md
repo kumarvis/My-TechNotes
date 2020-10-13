@@ -122,3 +122,9 @@ foo/src/bar/baz.h in project foo should have the following guard:
 
 #endif //FOO_BAR_BAZ_H_
 ```
+
+### <ins>References:</ins>
+
+1. [Chaste CS OX UK ](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&ved=2ahUKEwj_hPKzpfnoAhXWXisKHdaPDioQFjAEegQIBBAC&url=https%3A%2F%2Fchaste.cs.ox.ac.uk%2Ftrac%2Fraw-attachment%2Fwiki%2FCodingStandardsStrategy%2FcodingStandards.pdf&usg=AOvVaw0luvSMRxUSnHMf4StikNh-)
+
+2. [Cpp Coding Standard CMU](https://users.ece.cmu.edu/~eno/coding/CppCodingStandard.html#classnames)
