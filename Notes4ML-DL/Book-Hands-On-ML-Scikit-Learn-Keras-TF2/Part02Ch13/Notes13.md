@@ -29,7 +29,14 @@ We assume we already have a list of filenames to jpeg images and a corresponding
     dataset = tf.data.Dataset.from_tensor_slices((filenames, labels))
 ```
 
-2. Repeat() method repeat(3) on the original dataset, and it
+2. Shuffle the data with a buffer_size [buffer_size reference](https://stackoverflow.com/questions/46444018/meaning-of-buffer-size-in-dataset-map-dataset-prefetch-and-dataset-shuffle/48096625#48096625)
+which may be equal to the length of the dataset.
+
+```
+    dataset = dataset.shuffle(len(filenames))
+```
+
+3. Repeat() method repeat(3) on the original dataset, and it
 returns a new dataset that will repeat the items of the original dataset three times. Of
 course, this will not copy all the data in memory three times. If you call this method
 with no arguments, the new dataset will repeat the source dataset forever, so the code
@@ -38,13 +45,6 @@ that iterates over the dataset will have to decide when to stop.
 ```
     #Repeat dataset forever
     dataset = dataset.repeat()
-```
-
-3. Shuffle the data with a buffer_size [buffer_size reference](https://stackoverflow.com/questions/46444018/meaning-of-buffer-size-in-dataset-map-dataset-prefetch-and-dataset-shuffle/48096625#48096625)
-which may be equal to the length of the dataset.
-
-```
-    dataset = dataset.shuffle(len(filenames))
 ```
 
 4. Parse the images from filename to the pixel values. Use multiple threads to improve the speed of preprocessing.
@@ -114,7 +114,16 @@ always be one batch ahead to serve the model.
     dataset = dataset.prefetch(1)
 ```
 
-**Steps from 2-7 falls under the TRANSFROM step.**
+Steps from 2-7 falls under the **TRANSFROM** step. All the steps return Object tpye of **tf.data.Dataset**.
+
+## Order of the operations:
+
+1. Create the dataset ***tf.data.Dataset***.
+2. Shuffle with a big enough *buffer_size* then repeat.
+3. map with the actual work (preprocessing, augmentation) using multiple parallel calls
+4. batch
+5. prefetch
+
 
 ### References:
 
