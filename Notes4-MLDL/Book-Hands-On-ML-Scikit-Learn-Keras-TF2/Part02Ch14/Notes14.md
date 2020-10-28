@@ -41,6 +41,10 @@ Figure below is an example of **GlobalAvgPool2D** pooling layer output is the av
 
 ![img_cnn_resnet](../images/ch14_resnet02.jpeg)
 
+1. *H(x) = F(x) + x* so even worst case if you don't learn anything i.e F(x) -> 0. There will be identiy function *x*.
+
+2. The delta for the learning of residual part F(x) is not very high from one layer to other layer. `Reference:` [NPTEL CNN Architecture Part 4 (ResNet)](https://youtu.be/iBepeakXC08?t=340)
+
 ### <ins> Xception: </ins>
 
 Another variant of the GoogLeNet architecture is worth noting: Xception 19 (which stands for Extreme Inception) was
