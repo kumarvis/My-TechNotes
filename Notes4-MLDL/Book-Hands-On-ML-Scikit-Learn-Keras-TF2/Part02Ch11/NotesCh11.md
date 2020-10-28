@@ -5,7 +5,8 @@ Batch Normalization consists of adding an operation in the model function for ea
 and shifts the result using two new parameter vectors per layer: one for scaling, the other for shifting. 
 In other words, **the operation lets the model learn the optimal scale and mean of each of the layer’s inputs**
 
-###### Batch Norm before activation or after the activation
+### <ins> Batch Norm before activation or after the activation: </ins>
+
 While the original paper talks about applying batch norm just before the activation function, it has 
 been found in practice that applying *batch norm after the activation yields better results*. This 
 seems to make sense, as if we were to put a activation after batch norm, then the batch norm layer 
@@ -145,7 +146,7 @@ hence sigmoid can do the job.
 3. clone the model_A while training model_B it affect model_A weights
 4. \##5 line set layers trainable to False and compile and fit the model.
 
-##### Todo:
+### <ins> Todo <ins> :
 1. Write a module for plotting **history** (returned from fit function).   
 2. Train CIFAR 10 dataset with pre-trained mobilenetv2, Resnet18.
 3. Use ADAM and RADAM and tune learning rate using paper [Cyclical Learning Rates for Training Neural 
