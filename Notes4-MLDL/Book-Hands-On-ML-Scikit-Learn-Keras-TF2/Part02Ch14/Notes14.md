@@ -43,7 +43,15 @@ Figure below is an example of **GlobalAvgPool2D** pooling layer output is the av
 
 1. *H(x) = F(x) + x* so even worst case if you don't learn anything i.e F(x) -> 0. There will be identiy function *x*.
 
-2. The delta for the learning of residual part *F(x)* is not very high from one layer to other layer hence it is easy to learn the residual as compare to *H(x)*. `Reference:` [NPTEL CNN Architecture Part 4 (ResNet)](https://youtu.be/iBepeakXC08?t=340)
+2. The delta for the learning of residual part *F(x)* is not very high from one layer to other layer hence it is easy to learn the residual as compare to *H(x)*. 
+
+`References:` 
+
+1. [NPTEL CNN Architecture Part 4 (ResNet)](https://youtu.be/iBepeakXC08?t=340) 
+
+2. [ResNet Architecture Nice Explanation](https://www.youtube.com/watch?v=0tBPSxioIZE&t=171s)
+
+3. [Deep Residual Learning for Image Recognition | AISC](https://www.youtube.com/watch?v=jio04YvgraU)
 
 ### <ins> Xception: </ins>
 
