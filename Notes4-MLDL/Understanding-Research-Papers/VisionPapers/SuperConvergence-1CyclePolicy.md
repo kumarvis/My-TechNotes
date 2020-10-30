@@ -34,7 +34,7 @@ The basic idea of super-convergence is to make use of a much higher learning rat
 
 ![Lr Rate Finder](../images/one_policy_max_lr_finder.png)
 
-The results of the LRFinder. The losses are plotted against the log scaled learning rates. A good learning rate would be in the range where the loss is strictly decreasing at a rapid rate: [1e-3, 1e-2]. Usually its good idea to start with mean value i.e (1e-3 + 1e-2) /2 . 
+The results of the LRFinder. The losses are plotted against the log scaled learning rates. A good learning rate would be in the range where the loss is strictly decreasing at a rapid rate: [1e-3, 1e-2]. Usually its good idea to start with mean value i.e `max_lr = (1e-3 + 1e-2) /2`. 
 
 **min lr:**
 ```
