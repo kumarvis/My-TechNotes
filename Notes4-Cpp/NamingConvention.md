@@ -10,7 +10,7 @@ This is set of 10 simple naming covention for cpp coding. Make code more structu
 3. Use upper case letters as word separators, lower case for the rest of a word.
 4. NOUN followed by VERB.
 
-```
+```cpp
 Example: class OdeSolver
 ```
 
@@ -20,7 +20,7 @@ Example: class OdeSolver
 2. Prefixes are sometimes useful. Example: is, has, get, set etc.
 3. Suffixes are sometimes useful. Example: max, count
 
-```
+```cpp
 class OdeSolver{
 public:
     int SolveEquation();
@@ -34,7 +34,7 @@ public:
 1. Pointers should be prepended by a ’p’ in most cases. Place the * close
 to the variable name rather than the pointer type. 
 
-```
+```cpp
 String *pName= new String
 ```
 
@@ -44,7 +44,7 @@ String *pName= new String
 character ’m’.
 2. ’m’ always precedes other name modifiers like ’p’ for pointer.
 
-```
+```cpp
 Class StudentRecord{
 private:
     int mPercentMarks;
@@ -56,7 +56,7 @@ private:
 
 1. References should be prepended with ’r’. 
 
-```
+```cpp
 void TestConveyorStart(StatusInfo& rStatus) ;
 
 StatusInfo& rGetStatus();
@@ -66,7 +66,7 @@ StatusInfo& rGetStatus();
 
 1. The first character or word should be lower case. All word beginnings after the first letter should be upper case.
 
-```
+```cpp
 int StartYourEngines( Engine& rSomeEngine, Engine anotherEngine);
 ```
 
@@ -74,26 +74,26 @@ int StartYourEngines( Engine& rSomeEngine, Engine anotherEngine);
 
 1. Should be prepended with a 'g'. 
 
-```
+```cpp
 Logger* gpLog; //g=global, p=pointer
 ```
 
 ## 8. Static and Const Variables:
 1. GLOBAL CONST: All caps with (_) separators. 
 
-```
+```cpp
 const double TWO_PI = 6.28318531;
 ```
 
 2. CLASS CONST: Use k before the name. 
 
-```
+```cpp
 const int kDaysInAWeek = 7;
 ```
 
 3. Static Variable: Static variables should be prepended with ’s’.
 
-```
+```cpp
 static StatusInfo sStatus;
 ```
 
@@ -102,7 +102,7 @@ static StatusInfo sStatus;
 1. Use all lower-case letters, separated with
 (_) as word separator. 
 
-```
+```cpp
 Time time_of_error;
 ```
 
@@ -114,7 +114,7 @@ The format of the symbol name should be
 For example, the file
 foo/src/bar/baz.h in project foo should have the following guard:
 
-```
+```cpp
 #ifndef FOO_BAR_BAZ_H_
 #define FOO_BAR_BAZ_H_
 ...
