@@ -1,4 +1,4 @@
-# GAN-Basics
+# GAN-Prerequisite
 
 ![gan-pre-requisite](./images/gan-pre-requisite01.jpeg)
 
