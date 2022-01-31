@@ -276,6 +276,10 @@ Coco 50 and Coco 75 implies Coco dataset with IoU = 0.5 and 0.75.
 
 3. [What’s new in YOLO v3?](https://towardsdatascience.com/yolo-v3-object-detection-53fb7d3bfe6b)
 
+4. [YOLOv3 from Scratch](https://towardsdatascience.com/yolo-v3-explained-ff5b850390f)
+
+5. [YOLO V3 Explained](https://towardsdatascience.com/yolo-v3-explained-ff5b850390f)
+
 
 
 
