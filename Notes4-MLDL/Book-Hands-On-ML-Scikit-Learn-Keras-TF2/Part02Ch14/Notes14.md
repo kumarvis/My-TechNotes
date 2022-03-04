@@ -223,8 +223,8 @@ Mask R-CNN is a state-of-the-art model for instance segmentation. It extends Fas
 #### <ins>References:</ins>
 
 1. [Mask R-CNN](https://cseweb.ucsd.edu/classes/sp18/cse252C-a/CSE252C_20180509.pdf)
-
 2. [Quick intro to Instance segmentation: Mask R-CNN](https://kharshit.github.io/blog/2019/08/23/quick-intro-to-instance-segmentation)
+3. [Mask R-CNN | Lecture 37 (Part 2) | Applied Deep Learning](https://www.youtube.com/watch?v=cDDwuq_p3bA)
 
 ### 3. <mark> YOLO V1, V2 and V3 </mark>
 
