@@ -201,12 +201,14 @@ MobileNet V2 | 300 | 3.47
 1. [Deep learning for all at Manas lab IIT Mandi](https://youtu.be/CKVuTe4nHgI?list=PLKvX2d3IUq58z6Ogtqm_Ni3TNdL3w2r5P)
 
 2. [Understanding Region of Interest — (RoI Pooling)](https://towardsdatascience.com/understanding-region-of-interest-part-1-roi-pooling-e4f5dd65bb44)
+3. [RoI-Align vs RoI-Pooling](https://www.youtube.com/watch?v=HLq_Z6HUFGc)
 
-3. [Understanding Region of Interest — (RoI Align and RoI Warp)](https://towardsdatascience.com/understanding-region-of-interest-part-2-roi-align-and-roi-warp-f795196fc193)
+4. [Understanding Region of Interest — (RoI Align and RoI Warp)](https://towardsdatascience.com/understanding-region-of-interest-part-2-roi-align-and-roi-warp-f795196fc193)
 
-4. [Faster R-CNN (object detection) implemented by Keras](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a)
+5. [Faster R-CNN (object detection) implemented by Keras](https://towardsdatascience.com/faster-r-cnn-object-detection-implemented-by-keras-for-custom-data-from-googles-open-images-125f62b9141a)
 
-5. [Faster R-CNN (object detection) implemented by Keras Git Link](https://github.com/RockyXu66/Faster_RCNN_for_Open_Images_Dataset_Keras)
+6. [Faster R-CNN (object detection) implemented by Keras Git Link](https://github.com/RockyXu66/Faster_RCNN_for_Open_Images_Dataset_Keras)
+   
 
 ### 2. <mark> Mask R-CNN </mark>
 
