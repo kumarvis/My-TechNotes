@@ -1,4 +1,4 @@
-![UML class diagram](images\uml-conversion.svg)
+![UML class diagram](images/uml-conversion.svg)
 
 
 
